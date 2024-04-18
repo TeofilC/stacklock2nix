@@ -724,7 +724,7 @@ let
             drv = hfinal.callCabal2nix pkgName pkgPath additionalArgs;
           in
             drv.override (args: args // {mkDerivation = drvArgs: args.mkDerivation (drvArgs //
-            {passthru = drvArgs.passthru or {} // { local = true };});});
+            {passthru = drvArgs.passthru or {} // { local = true; };});});
       };
     in
     builtins.listToAttrs (map localPkgToOverlayAttr localPkgs);
